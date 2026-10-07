@@ -1,42 +1,67 @@
-# CRM Performance Calculator
+# CRM Dashboard Full Stack
 
-Un calculator CRM performant pentru managementul vânzărilor, funcțiile ierarhice și KPI-urile cheie.
+A complete CRM dashboard project with:
+- React + Vite frontend
+- Express API backend
+- PostgreSQL support
+- Memory fallback for quick startup
+- CRUD for leads, offers, orders, invoices and stock
+- Overview and KPI panel
 
-## Ce include
+## Quick start
 
-- calcul pipeline și forecast
-- calcul comision și target per agent
-- conversie, lead score, ROI
-- profit net, marjă și cash flow
-- LTV/CAC, retention și churn
-- adaptare în funcție de rolul ales (Director, Manager, Agent, Back-office, Financiar etc.)
-- structură modulară, gata pentru extindere
+1. Install dependencies
 
-## Cum rulează
+```bash
+npm install
+```
 
-Deschide `index.html` în browser.
+2. Create PostgreSQL database
 
-## Structură proiect
+```bash
+createdb crm_db
+psql -d crm_db -f db/init.sql
+```
 
-- `index.html` — interfața principală
-- `style.css` — stiluri
-- `app.js` — logica calculatorului și KPI-urilor
+3. Create environment file
 
-## Exemple de funcții CRM calculate
+```bash
+cp .env.example .env
+```
 
-- `Pipeline = valoare oportunități × probabilitate`
-- `Comision = pipeline × comision %`
-- `Target per agent = target lunar / număr vânzători`
-- `Conversie = clienți noi / (clienți noi + clienți existenți)`
-- `ROI = (profit brut - costuri) / costuri * 100`
-- `LTV / CAC = LTV / CAC`
-- `Retention = % păstrare clienți`
-- `Churn = % pierdere clienți`
+4. Run project
 
-## Extensii recomandate
+```bash
+npm run dev
+```
 
-- export CSV / PDF
-- autentificare cu roluri și permisiuni
-- dashboard cu grafice
-- input din date DB / API
-- workflow pentru lead-uri, oferte, comenzi, facturi
+Open:
+- Frontend: http://localhost:5173
+- API: http://localhost:5000
+
+## PostgreSQL connection
+
+The app supports PostgreSQL via `DATABASE_URL` in `.env`.
+If no `DATABASE_URL` is present, the project runs in in-memory mode.
+
+## Main scripts
+
+- `npm run dev` — run backend + frontend together
+- `npm run server` — run backend only
+- `npm run client` — run frontend only
+- `npm run build` — build frontend
+
+## Included modules
+
+- Overview
+- Leads
+- Offers
+- Orders
+- Invoices
+- Stock
+- KPI
+- Activity log
+
+## Notes
+
+This is a clean, ready-to-run foundation for a real CRM system. You can extend it with auth, roles, charts, export and database persistence.
